@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayşe Kancak</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #e8f5e9, #fdecea);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Arka plan uçuşan kalpler */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 0, 0, 0.25);
+      transform: rotate(45deg);
+      animation: float 12s linear infinite;
+      filter: blur(1px);
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: inherit;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+
+    @keyframes float {
+      from { transform: translateY(100vh) rotate(45deg); }
+      to { transform: translateY(-120vh) rotate(45deg); }
+    }
+
+    .card {
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      z-index: 2;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      color: #333;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background: #e53935;
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover { background: #c62828; }
+
+    .message {
+      display: none;
+      margin-top: 30px;
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .message p { margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+
+  <!-- Uçuşan kalpler -->
+  <div class="heart" style="left:10%; animation-delay:0s;"></div>
+  <div class="heart" style="left:30%; animation-delay:3s; background: rgba(76,175,80,0.25);"></div>
+  <div class="heart" style="left:50%; animation-delay:6s;"></div>
+  <div class="heart" style="left:70%; animation-delay:1s; background: rgba(76,175,80,0.25);"></div>
+  <div class="heart" style="left:90%; animation-delay:4s;"></div>
+
+  <div class="card">
+    <h1>Ayşe Kancak</h1>
+    <div class="subtitle">Kalbine girmek için tıklar mısın?</div>
+    <button onclick="openMessage()">Tıkla</button>
+
+    <div class="message" id="message">
+      <p>Bu satırları yazarken kolay olmadığını bilmeni istiyorum. Çünkü bazı şeyleri zamanında söylemedim, hissettiremedim.</p>
+
+      <p>Seni sevdiğimi sandım ama bunu sana göstermeyi başaramadım. Umursamaz davrandım, hep orada olacağını düşündüm. Sen anlatmaya çalıştın, ben geç fark ettim.</p>
+
+      <p>Şimdi dönüp baktığımda, hatalarımı net görüyorum ve bunun pişmanlığını taşıyorum. Bu bir savunma değil, bir fark ediş.</p>
+
+      <p>Garip gelebilir ama sana, sevgine, varlığına çok alıştım. Seninle bir ömür düşünmeden kurulacak bir cümle değil bu.</p>
+
+      <p>Senden bir şey talep etmiyorum. Sadece bilmeni istedim. Kalbine dokunabildiysem ne mutlu bana.</p>
+    </div>
+  </div>
+
+  <script>
+    function openMessage() {
+      document.getElementById('message').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
